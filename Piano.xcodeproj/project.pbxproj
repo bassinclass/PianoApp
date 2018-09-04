@@ -12,6 +12,13 @@
 		8134B7D3213E0B480017EABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8134B7D1213E0B480017EABE /* Main.storyboard */; };
 		8134B7D5213E0B4C0017EABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8134B7D4213E0B4C0017EABE /* Assets.xcassets */; };
 		8134B7D8213E0B4C0017EABE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8134B7D6213E0B4C0017EABE /* LaunchScreen.storyboard */; };
+		81E82D84213E14BC001D9EA3 /* piano-a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 81E82D7D213E14BB001D9EA3 /* piano-a.wav */; };
+		81E82D85213E14BC001D9EA3 /* piano-e.wav in Resources */ = {isa = PBXBuildFile; fileRef = 81E82D7E213E14BB001D9EA3 /* piano-e.wav */; };
+		81E82D86213E14BC001D9EA3 /* piano-d.wav in Resources */ = {isa = PBXBuildFile; fileRef = 81E82D7F213E14BB001D9EA3 /* piano-d.wav */; };
+		81E82D87213E14BC001D9EA3 /* piano-b.wav in Resources */ = {isa = PBXBuildFile; fileRef = 81E82D80213E14BC001D9EA3 /* piano-b.wav */; };
+		81E82D88213E14BC001D9EA3 /* piano-g.wav in Resources */ = {isa = PBXBuildFile; fileRef = 81E82D81213E14BC001D9EA3 /* piano-g.wav */; };
+		81E82D89213E14BC001D9EA3 /* piano-c.wav in Resources */ = {isa = PBXBuildFile; fileRef = 81E82D82213E14BC001D9EA3 /* piano-c.wav */; };
+		81E82D8A213E14BC001D9EA3 /* piano-f.wav in Resources */ = {isa = PBXBuildFile; fileRef = 81E82D83213E14BC001D9EA3 /* piano-f.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		8134B7D4213E0B4C0017EABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8134B7D7213E0B4C0017EABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8134B7D9213E0B4C0017EABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81E82D7D213E14BB001D9EA3 /* piano-a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "piano-a.wav"; sourceTree = "<group>"; };
+		81E82D7E213E14BB001D9EA3 /* piano-e.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "piano-e.wav"; sourceTree = "<group>"; };
+		81E82D7F213E14BB001D9EA3 /* piano-d.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "piano-d.wav"; sourceTree = "<group>"; };
+		81E82D80213E14BC001D9EA3 /* piano-b.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "piano-b.wav"; sourceTree = "<group>"; };
+		81E82D81213E14BC001D9EA3 /* piano-g.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "piano-g.wav"; sourceTree = "<group>"; };
+		81E82D82213E14BC001D9EA3 /* piano-c.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "piano-c.wav"; sourceTree = "<group>"; };
+		81E82D83213E14BC001D9EA3 /* piano-f.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "piano-f.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,13 @@
 				8134B7D4213E0B4C0017EABE /* Assets.xcassets */,
 				8134B7D6213E0B4C0017EABE /* LaunchScreen.storyboard */,
 				8134B7D9213E0B4C0017EABE /* Info.plist */,
+				81E82D7D213E14BB001D9EA3 /* piano-a.wav */,
+				81E82D80213E14BC001D9EA3 /* piano-b.wav */,
+				81E82D82213E14BC001D9EA3 /* piano-c.wav */,
+				81E82D7F213E14BB001D9EA3 /* piano-d.wav */,
+				81E82D7E213E14BB001D9EA3 /* piano-e.wav */,
+				81E82D83213E14BC001D9EA3 /* piano-f.wav */,
+				81E82D81213E14BC001D9EA3 /* piano-g.wav */,
 			);
 			path = Piano;
 			sourceTree = "<group>";
@@ -122,8 +143,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E82D89213E14BC001D9EA3 /* piano-c.wav in Resources */,
+				81E82D84213E14BC001D9EA3 /* piano-a.wav in Resources */,
 				8134B7D8213E0B4C0017EABE /* LaunchScreen.storyboard in Resources */,
+				81E82D88213E14BC001D9EA3 /* piano-g.wav in Resources */,
+				81E82D87213E14BC001D9EA3 /* piano-b.wav in Resources */,
 				8134B7D5213E0B4C0017EABE /* Assets.xcassets in Resources */,
+				81E82D86213E14BC001D9EA3 /* piano-d.wav in Resources */,
+				81E82D8A213E14BC001D9EA3 /* piano-f.wav in Resources */,
+				81E82D85213E14BC001D9EA3 /* piano-e.wav in Resources */,
 				8134B7D3213E0B480017EABE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
