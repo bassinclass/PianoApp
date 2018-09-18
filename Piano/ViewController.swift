@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     var timer = Timer()
     var pattern: [Int] = []
     var noteNumber = 0
+    var numberOfNotesPlayedBackAlready = 0
+    
     var recordingInProgress = false
     
     override func viewDidLoad() {
@@ -40,7 +42,6 @@ class ViewController: UIViewController {
             recordingInProgressAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
             self.present(recordingInProgressAlert, animated: true, completion: nil)
         }
-        
     }
     
     @IBAction func onStopButtonTapped(_ sender: Any) {
@@ -51,19 +52,21 @@ class ViewController: UIViewController {
             recordingInProgressAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
             self.present(recordingInProgressAlert, animated: true, completion: nil)
         }
-        
     }
    
     @IBAction func onTap(_ sender: UITapGestureRecognizer) {
-        if recordingInProgress == true {
-            let tappedLocation = sender.location(in: grayView)
-            for noteLabel in labelArray {
+        let tappedLocation = sender.location(in: grayView)
+        for noteLabel in labelArray {
+            if noteLabel.frame.contains(tappedLocation) {
                 playSound(fileName: noteLabel.tag)
+            }
+        }
+        
+        if recordingInProgress == true {
+            for noteLabel in labelArray {
                 if noteLabel.frame.contains(tappedLocation) {
-                    noteNumber += 1 //added a number on to note.
-                    print("You tapped the \(String(describing: noteLabel.text)) note")
+                    noteNumber += 1
                     appendToPattern(noteNumber: noteLabel.tag)
-                    print(pattern)
                 }
             }
         }
@@ -74,18 +77,22 @@ class ViewController: UIViewController {
     }
 
     func displayPattern() {
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(playThePattern), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(playThePattern), userInfo: nil, repeats: true)
     }
     
     @objc func playThePattern() {
-            if pattern.count < noteNumber {
-                playSound(fileName: pattern[noteNumber])
-                noteNumber += 1
-            }else {
-                timer.invalidate()
-                print(pattern.count)
-                print(noteNumber)
-            }
+        // there's more notes left in the array that you haven't played, keep playing
+        if pattern.count > numberOfNotesPlayedBackAlready {
+            // Play the next note in the pattern
+            playSound(fileName: pattern[numberOfNotesPlayedBackAlready])
+            // Increase the notesPlayed counter variable so we can re-evaluate next time
+            numberOfNotesPlayedBackAlready = numberOfNotesPlayedBackAlready + 1
+        } else {
+            // There's no more notes left to play in the pattern so shut it all down
+            timer.invalidate()
+            // reset the counter
+            numberOfNotesPlayedBackAlready = 0
+        }
     }
     
     func appendLabel() {
@@ -106,7 +113,7 @@ class ViewController: UIViewController {
                 self.sound?.play()
             }
             catch {
-//                print("Can't find file")
+                print("Can't find file")
             }
         }
     }
@@ -114,64 +121,6 @@ class ViewController: UIViewController {
     func appendToPattern(noteNumber: Int) { //appends to pattern array
         pattern.append(noteNumber)
     }
-    
-    
 
 }
-
-//    func playPianoSound(sender: Any) { // this function needs to recognize a tap before it can get the sound.
-//        if labelArray[0].frame.contains((sender as! UITapGestureRecognizer).location(in: grayView)){
-//            getSound(fileName: "piano-a")
-//        }
-//        else  if labelArray[1].frame.contains((sender as AnyObject).location(in: grayView)){
-//            getSound(fileName: "piano-b")
-//        }
-//        else  if labelArray[2].frame.contains((sender as AnyObject).location(in: grayView)){
-//            getSound(fileName: "piano-c")
-//        }
-//        else  if labelArray[3].frame.contains((sender as AnyObject).location(in: grayView)){
-//            getSound(fileName: "piano-d")
-//        }
-//        else  if labelArray[4].frame.contains((sender as AnyObject).location(in: grayView)){
-//            getSound(fileName: "piano-e")
-//        }
-//        else  if labelArray[5].frame.contains((sender as AnyObject).location(in: grayView)){
-//            getSound(fileName: "piano-f")
-//        }
-//        else  if labelArray[6].frame.contains((sender as AnyObject).location(in: grayView)){
-//            getSound(fileName: "piano-g")
-//        }
-//    }
-
-
-//    func playRecordedPianoSound(){
-//
-//        for element in pattern{
-//            if element == 1 {
-//                getSound(fileName: "piano-a")
-//            }
-//            else  if element == 2{
-//                getSound(fileName: "piano-b")
-//            }
-//            else if element == 3{
-//                getSound(fileName: "piano-c")
-//            }
-//            else if element == 4{
-//                getSound(fileName: "piano-d")
-//            }
-//            else if element == 5 {
-//                getSound(fileName: "piano-e")
-//            }
-//            else  if element == 6{
-//                getSound(fileName: "piano-f")
-//            }
-//            else if element == 7 {
-//                getSound(fileName: "piano-g")
-//            }
-//        }
-//
-//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (#selector(ViewController.soundController)), userInfo: nil, repeats: false)
-//    }
-
-
 
