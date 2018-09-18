@@ -78,17 +78,14 @@ class ViewController: UIViewController {
     }
     
     @objc func playThePattern() {
-        for note in pattern {
-            if pattern.count > note {
+            if pattern.count < noteNumber {
+                playSound(fileName: pattern[noteNumber])
                 noteNumber += 1
-                let noteFileName = String(note)
-                playSound(fileName: pattern[note])
-                print(noteFileName)
             }else {
                 timer.invalidate()
-                recordingInProgress = false
+                print(pattern.count)
+                print(noteNumber)
             }
-        }
     }
     
     func appendLabel() {
